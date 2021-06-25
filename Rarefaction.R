@@ -2,12 +2,7 @@
 
 setwd("~/R/Peru_trees")
 
-trees <- read.table(file = "Peru_trees.csv", sep = ",", header = T)
-
-#Clean the data
-length(unique(trees$Site)) #20 sites
-trees$Site <- gsub("El dorado", "El Dorado", trees$Site)
-
+trees <- read.table(file = "treeswclass.csv", sep = ",", header = T)
 
 #Change names (and checked) #Maybe underscore for future
 trees$hab <- factor(trees$hab,
