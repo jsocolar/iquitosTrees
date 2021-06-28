@@ -4,13 +4,6 @@ setwd("~/R/Peru_trees")
 
 trees <- read.table(file = "treeswclass.csv", sep = ",", header = T)
 
-#Change names (and checked) #Maybe underscore for future
-trees$hab <- factor(trees$hab,
-                    labels = c("Upland", "Flooded", "White Sand"))
-
-trees$dis <- factor(trees$dis,
-                    labels = c("Disturbed", "Primary"))
-
 
 # Packages 
 #install.packages("iNEXT")
