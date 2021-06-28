@@ -56,18 +56,18 @@ rownames(tpt.matrix) <- gsub("_", ".", rownames(tpt.matrix))
 
 
 # Intact habitat
-ptmatrix <- tpt.matrix[which(tpt.matrix$Dis==2), -2]
+ptmatrix <- tpt.matrix[which(tpt.matrix$Dis== "Primary"), -2]
 # Disturbed habitat
-dtmatrix <- tpt.matrix[which(tpt.matrix$Dis==1), -2]
+dtmatrix <- tpt.matrix[which(tpt.matrix$Dis=="Disturbed"), -2]
 
 
 
 
 
 # Abundance-based rarefaction for trees in Primary sites
-u.pt.mat <- ptmatrix[ptmatrix[,1]==1,2:dim(ptmatrix)[2]]
-f.pt.mat <- ptmatrix[ptmatrix[,1]==2,2:dim(ptmatrix)[2]]
-w.pt.mat <- ptmatrix[ptmatrix[,1]==3,2:dim(ptmatrix)[2]]
+u.pt.mat <- ptmatrix[ptmatrix[,1]=="Upland",2:dim(ptmatrix)[2]]
+f.pt.mat <- ptmatrix[ptmatrix[,1]=="Flooded",2:dim(ptmatrix)[2]]
+w.pt.mat <- ptmatrix[ptmatrix[,1]=="White.Sand",2:dim(ptmatrix)[2]]
 
 
 ab.site.p <- list()
@@ -83,9 +83,9 @@ ab.site.p.trees.plot <- ab.site.p.trees.plot + ggtitle('Primary.Ab-Based')
 
 
 # Abundance-based rarefaction for trees in Disturbed sites
-u.dt.mat <- dtmatrix[dtmatrix[,1]==1,2:dim(dtmatrix)[2]]
-f.dt.mat <- dtmatrix[dtmatrix[,1]==2,2:dim(dtmatrix)[2]]
-w.dt.mat <- dtmatrix[dtmatrix[,1]==3,2:dim(dtmatrix)[2]]
+u.dt.mat <- dtmatrix[dtmatrix[,1]=="Upland",2:dim(dtmatrix)[2]]
+f.dt.mat <- dtmatrix[dtmatrix[,1]=="Flooded",2:dim(dtmatrix)[2]]
+w.dt.mat <- dtmatrix[dtmatrix[,1]=="White.Sand",2:dim(dtmatrix)[2]]
 
 
 ab.site.d <- list()
@@ -130,16 +130,16 @@ for(i in 1:length(tstt)){
 
 
 # Intact habitat
-pttmatrix <- ttr.matrix[which(ttr.matrix$Dis==2), -2]
+pttmatrix <- ttr.matrix[which(ttr.matrix$Dis=="Primary"), -2]
 # Disturbed habitat
-dttmatrix <- ttr.matrix[which(ttr.matrix$Dis==1), -2]
+dttmatrix <- ttr.matrix[which(ttr.matrix$Dis=="Disturbed"), -2]
 
 
 
 # Individual-based rarefaction for trees in Primary sites
-u.pt.mat.ib <- pttmatrix[pttmatrix[,1]==1,2:dim(pttmatrix)[2]]
-f.pt.mat.ib <- pttmatrix[pttmatrix[,1]==2,2:dim(pttmatrix)[2]]
-w.pt.mat.ib <- pttmatrix[pttmatrix[,1]==3,2:dim(pttmatrix)[2]]
+u.pt.mat.ib <- pttmatrix[pttmatrix[,1]=="Upland",2:dim(pttmatrix)[2]]
+f.pt.mat.ib <- pttmatrix[pttmatrix[,1]=="Flooded",2:dim(pttmatrix)[2]]
+w.pt.mat.ib <- pttmatrix[pttmatrix[,1]=="White.Sand",2:dim(pttmatrix)[2]]
 
 
 ab.site.p.ib <- list()
@@ -154,9 +154,9 @@ ab.site.p.trees.plot.ib <- ab.site.p.trees.plot.ib + ggtitle('Primary Ind-Based'
 
 
 # Individual-based rarefaction for trees in Disturbed sites
-u.dt.mat.ib <- dttmatrix[dttmatrix[,1]==1,2:dim(dttmatrix)[2]]
-f.dt.mat.ib <- dttmatrix[dttmatrix[,1]==2,2:dim(dttmatrix)[2]]
-w.dt.mat.ib <- dttmatrix[dttmatrix[,1]==3,2:dim(dttmatrix)[2]]
+u.dt.mat.ib <- dttmatrix[dttmatrix[,1]=="Upland",2:dim(dttmatrix)[2]]
+f.dt.mat.ib <- dttmatrix[dttmatrix[,1]=="Flooded",2:dim(dttmatrix)[2]]
+w.dt.mat.ib <- dttmatrix[dttmatrix[,1]=="White.Sand",2:dim(dttmatrix)[2]]
 
 ab.site.d.ib <- list()
 ab.site.d.ib$Upland <- colSums(u.dt.mat.ib)
